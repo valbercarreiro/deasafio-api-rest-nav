@@ -22,6 +22,9 @@ public class PatrimonioResponse {
 	@ApiModelProperty(value = "Marca do patrimônio", name = "Marca patrimônio", position = 5)
 	private MarcaResponse marca;
 	
+	public PatrimonioResponse() {
+	}
+	
 	public PatrimonioResponse(Long id, String nome, String descricao, String numeroTombamento, MarcaResponse marca) {
 		super();
 		this.id = id;
@@ -53,6 +56,30 @@ public class PatrimonioResponse {
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getNumeroTombamento() {
+		return numeroTombamento;
+	}
+
+	public void setNumeroTombamento(String numeroTombamento) {
+		this.numeroTombamento = numeroTombamento;
+	}
+
+	public MarcaResponse getMarca() {
+		return marca;
+	}
+
+	public void setMarca(MarcaResponse marca) {
+		this.marca = marca;
 	}
 
 	public static PatrimonioResponse converter(Patrimonio patrimonio) {

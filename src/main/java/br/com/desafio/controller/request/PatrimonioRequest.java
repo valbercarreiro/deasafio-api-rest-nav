@@ -10,45 +10,54 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Representa a request das chamadas aos endpoints de patrimônio")
 public class PatrimonioRequest {
 
-	@ApiModelProperty(value = "Identificador do patrimônio", name = "Identificador patrimônio", position = 1)
-	private Long id;
-	
-	@ApiModelProperty(value = "Nome do patrimônio", name = "Nome patrimônio", position = 2)
+	@ApiModelProperty(value = "Nome do patrimônio", name = "Nome patrimônio", position = 1)
 	@NotNull
 	private String nome;
 	
-	@ApiModelProperty(value = "Descrição do patrimônio", name = "Descrição patrimônio", position = 3)
-	@NotNull
+	@ApiModelProperty(value = "Descrição do patrimônio", name = "Descrição patrimônio", position = 2)
 	private String descricao;
 	
-	@ApiModelProperty(value = "Marca do patrimônio", name = "Marca patrimônio", position = 4)
+	@ApiModelProperty(value = "Marca do patrimônio", name = "Marca patrimônio", position = 3)
 	@NotNull
 	private Long idMarca;
 	
-	public PatrimonioRequest(Long id, String nome) {
-		this.id = id;
+	public PatrimonioRequest() {
+	}
+	
+	public PatrimonioRequest(String nome, String descricao, Long idMarca) {
 		this.nome = nome;
+		this.descricao = descricao;
+		this.idMarca = idMarca;
 	}
 	
-	public PatrimonioRequest(Marca marca) {
-		this.id = marca.getId();
-		this.nome = marca.getNome();
+	public PatrimonioRequest(Patrimonio patrimonio) {
+		this.nome = patrimonio.getNome();
+		this.descricao = patrimonio.getDescricao();
+		this.idMarca = patrimonio.getMarca().getId();
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public String getNome() {
 		return nome;
 	}
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Long getIdMarca() {
+		return idMarca;
+	}
+
+	public void setIdMarca(Long idMarca) {
+		this.idMarca = idMarca;
 	}
 
 	public Patrimonio converter() {

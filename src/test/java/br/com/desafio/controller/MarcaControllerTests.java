@@ -58,7 +58,7 @@ public class MarcaControllerTests {
         this.getRequestSpecification()
         		.contentType(MediaType.APPLICATION_JSON_VALUE)
         		.body(new ObjectMapper().writeValueAsString(req))
-        		.post("/v1/marcas")
+        		.post("/marcas")
         		.then().statusCode(HttpStatus.OK.value());
     }    
     
